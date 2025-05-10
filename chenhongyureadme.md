@@ -10,13 +10,15 @@ MongoDB Atlas: If you want to use an online service, you can register and create
 ## 2. Installation Steps
 ### 1. Clone the Project Code
 First, clone the project code to your local machine. Open the terminal (Windows users can use the Command Prompt or PowerShell, while Mac and Linux users can use the Terminal application) and execute the following command:
-``` git clone <URL of the project code repository>
+```
+git clone <URL of the project code repository>
 cd fastAPIMongoDB_todoAPP
 ```
 Replace <URL of the project code repository> with the actual URL of the project code repository.
 ### 2. Create a Virtual Environment (Optional but Recommended)
 To avoid conflicts between project dependencies, it is recommended to create a virtual environment. Execute the following commands in the terminal:
-``` #Create a virtual environment
+```
+#Create a virtual environment
 python -m venv venv
 
 #Activate the virtual environment
@@ -38,7 +40,8 @@ db = client.todo_app
 collection_name = db["todos_app"]
 ### 2. MongoDB Atlas Configuration
 If you are using MongoDB Atlas, log in to your Atlas account, find the connection information for the cluster. Copy the connection string and replace <password> with your actual database password. Then modify the connection string in the config/database.py file as follows:
-``` from pymongo import MongoClient
+```
+from pymongo import MongoClient
 
 client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority")
 db = client.todo_app

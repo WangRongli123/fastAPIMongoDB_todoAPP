@@ -10,21 +10,24 @@ MongoDB Atlas: If you want to use an online service, you can register and create
 ## 2. Installation Steps
 ### 1. Clone the Project Code
 First, clone the project code to your local machine. Open the terminal (Windows users can use the Command Prompt or PowerShell, while Mac and Linux users can use the Terminal application) and execute the following command:
-``` git clone <URL of the project code repository> ```
-``` cd fastAPIMongoDB_todoAPP```
+``` git clone <URL of the project code repository>
+cd fastAPIMongoDB_todoAPP
+```
 Replace <URL of the project code repository> with the actual URL of the project code repository.
 ### 2. Create a Virtual Environment (Optional but Recommended)
 To avoid conflicts between project dependencies, it is recommended to create a virtual environment. Execute the following commands in the terminal:
-``` #Create a virtual environment```
-```python -m venv venv```
+``` #Create a virtual environment
+python -m venv venv
 
-```#Activate the virtual environment```
-```#Windows```
-```venv\Scripts\activate```
-```#Mac/Linux ```
+#Activate the virtual environment
+#Windows
+venv\Scripts\activate
+#Mac/Linux
+ ```
 ### 3. Install Project Dependencies
 After activating the virtual environment, use pip to install the project's required dependencies. The dependency information of the project is stored in the requirements.txt file. Execute the following command to install:
-` pip install -r requirements.txt `
+``` pip install -r requirements.txt 
+```
 
 ## 3. Database Configuration
 ### 1. Local MongoDB Configuration
@@ -36,18 +39,20 @@ db = client.todo_app
 collection_name = db["todos_app"]
 ### 2. MongoDB Atlas Configuration
 If you are using MongoDB Atlas, log in to your Atlas account, find the connection information for the cluster. Copy the connection string and replace <password> with your actual database password. Then modify the connection string in the config/database.py file as follows:
-``` from pymongo import MongoClient```
+``` from pymongo import MongoClient
 
-```client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority")```
-```db = client.todo_app```
-```collection_name = db["todos_app"] ```
+client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority")
+db = client.todo_app
+collection_name = db["todos_app"]
+ ```
 Replace <username>, <password>, <cluster-url>, and <database-name> with the actual values
 
 ## 4. Deployment Methods
 ### 1. Start the Application
 In the terminal, make sure you have entered the root directory of the project (i.e., the fastAPIMongoDB_todoAPP directory) and the virtual environment is activated. Execute the following command to start the FastAPI application:
 
-`uvicorn main:app --reload `
+```uvicorn main:app --reload 
+```
 main is the name of the main.py file (excluding the .py extension).
 app is the name of the FastAPI application instance defined in the main.py file.
 The --reload option is used to enable the automatic re - loading function. During the development process, when you modify the code, the server will automatically restart to apply the new changes.

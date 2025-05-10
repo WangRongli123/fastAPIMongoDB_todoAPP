@@ -26,8 +26,7 @@ venv\Scripts\activate
  ```
 ### 3. Install Project Dependencies
 After activating the virtual environment, use pip to install the project's required dependencies. The dependency information of the project is stored in the requirements.txt file. Execute the following command to install:
-``` pip install -r requirements.txt 
-```
+`pip install -r requirements.txt `
 
 ## 3. Database Configuration
 ### 1. Local MongoDB Configuration
@@ -51,8 +50,7 @@ Replace <username>, <password>, <cluster-url>, and <database-name> with the actu
 ### 1. Start the Application
 In the terminal, make sure you have entered the root directory of the project (i.e., the fastAPIMongoDB_todoAPP directory) and the virtual environment is activated. Execute the following command to start the FastAPI application:
 
-```uvicorn main:app --reload 
-```
+`uvicorn main:app --reload `
 main is the name of the main.py file (excluding the .py extension).
 app is the name of the FastAPI application instance defined in the main.py file.
 The --reload option is used to enable the automatic re - loading function. During the development process, when you modify the code, the server will automatically restart to apply the new changes.

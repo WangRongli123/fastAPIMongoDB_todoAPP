@@ -10,8 +10,8 @@ MongoDB Atlas: If you want to use an online service, you can register and create
 ## 2. Installation Steps
 ### 1. Clone the Project Code
 First, clone the project code to your local machine. Open the terminal (Windows users can use the Command Prompt or PowerShell, while Mac and Linux users can use the Terminal application) and execute the following command:
-` git clone <URL of the project code repository>
-cd fastAPIMongoDB_todoAPP `
+``` git clone <URL of the project code repository>
+cd fastAPIMongoDB_todoAPP ```
 Replace <URL of the project code repository> with the actual URL of the project code repository.
 ### 2. Create a Virtual Environment (Optional but Recommended)
 To avoid conflicts between project dependencies, it is recommended to create a virtual environment. Execute the following commands in the terminal:

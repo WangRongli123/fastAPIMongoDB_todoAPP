@@ -44,8 +44,6 @@ client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/<databas
 db = client.todo_app
 collection_name = db["todos_app"]
  ```
-Replace <username>, <password>, <cluster-url>, and <database-name> with the actual values
-
 ## 4. Deployment Methods
 ### 1. Start the Application
 In the terminal, make sure you have entered the root directory of the project (i.e., the fastAPIMongoDB_todoAPP directory) and the virtual environment is activated. Execute the following command to start the FastAPI application:

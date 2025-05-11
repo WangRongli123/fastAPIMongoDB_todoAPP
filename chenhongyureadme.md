@@ -2,9 +2,12 @@
 
 ## 1. Prerequisites
 Before starting the installation and deployment, ensure that the following environments and tools are installed:
+
 Python: This project is developed based on Python. It is recommended to use Python 3.7 or a higher version.
+
 MongoDB: Used to store to - do list data. You can choose to install the local MongoDB Community Server, or use an online service such as MongoDB Atlas. 
 Local Installation: Download and install the MongoDB Community Edition suitable for your operating system from the official MongoDB website.
+
 MongoDB Atlas: If you want to use an online service, you can register and create a MongoDB Atlas account and create a free cluster.
 
 ## 2. Installation Steps

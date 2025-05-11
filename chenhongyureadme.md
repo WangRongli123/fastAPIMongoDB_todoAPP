@@ -29,18 +29,21 @@ venv\Scripts\activate
 #Mac/Linux
 source venv/bin/activate
  ```
+Once activated successfully, you'll usually see (venv) at the beginning of the terminal command line, indicating that you're in the virtual environment.
 ### 2.3 Install Project Dependencies
 After activating the virtual environment, use pip to install the project's required dependencies. The dependency information of the project is stored in the requirements.txt file. Execute the following command to install:
 ```
 pip install -r requirements.txt 
 ```
+If there are errors during installation, it may be due to network issues or incorrect Python environment configurations. Try changing the network, upgrading pip (pip install --upgrade pip), or manually installing the failed dependencies (pip install <Dependency Name>).
 
 ## 3. Database Configuration
 ### 3.1 Local MongoDB Configuration
-If you are using a locally installed MongoDB, open the config/database.py file and modify the connection string as follows:
+If you're using a local MongoDB, open the config/database.py file with a text editor (such as VS Code or Notepad) and modify the content as follows:
 ```
 from pymongo import MongoClient
 
+#Connect to local MongoDB. mydb is the database name and can be customized
 client = MongoClient("mongodb://localhost:27017/mydb")
 db = client.todo_app
 collection_name = db["todos_app"]
@@ -50,6 +53,7 @@ If you are using MongoDB Atlas, log in to your Atlas account, find the connectio
 ```
 from pymongo import MongoClient
 
+#Replace <username> <password> <cluster-url> <database-name> with your actual information
 client = MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority")
 db = client.todo_app
 collection_name = db["todos_app"]
@@ -60,21 +64,30 @@ In the terminal, make sure you have entered the root directory of the project (i
 ```
 uvicorn main:app --reload
 ```
-main is the name of the main.py file (excluding the .py extension).
+main refers to the main.py file (without the .py extension).
+
 app is the name of the FastAPI application instance defined in the main.py file.
-The --reload option is used to enable the automatic re - loading function. During the development process, when you modify the code, the server will automatically restart to apply the new changes.
+
+--reload enables the automatic reloading function. When you modify the code during development, the server will automatically restart to apply the new code.
 ### 4.2 Access the Application
 After the server starts successfully, you can access the following addresses in your browser:
+
 Application Home Page: http://127.0.0.1:8000
+
 Interactive API Documentation: http://127.0.0.1:8000/docs. You can test the API interfaces on this page.
 
 ## 5. Solutions to Common Problems
 ### 5.1 Dependency Installation Failure
-If you encounter a dependency installation failure when executing pip install -r requirements.txt, it may be due to network issues or incorrect Python environment configuration. You can try the following solutions:
-1.Check the network connection to ensure that you can access the Python Package Index (PyPI) normally.
-2.Upgrade pip to the latest version: pip install --upgrade pip.
-3.Manually install the missing dependencies: pip install <dependency name>.
+If you encounter errors when executing pip install -r requirements.txt:
+
+1.Network Issues: Check your network connection. Try changing the network or reinstalling later.
+
+2.Outdated pip: Run pip install --upgrade pip to update pip.
+
+3.Manual Installation: According to the error message, install the failed dependencies individually, e.g., pip install <Dependency Name>
 ### 5.2 Database Connection Failure
 If the application cannot connect to the database, it may be due to an incorrect connection string configuration or the database service not being started. You can check the following points:
+
 Confirm that the connection string in the config/database.py file is correct.
+
 Check if the MongoDB service has been started. If you are using a local MongoDB, execute the mongo command in the terminal to see if you can successfully connect to the database.

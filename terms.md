@@ -1,113 +1,147 @@
 # 术语表
-# 左侧为中文术语，右侧为英文术语
+# 左侧为英文术语，右侧为中文术语
 
-# 中文术语      英文术语
+# 英文术语      中文术语
 
-1. 快速应用编程接口 → FastPAI
 
-2. 异步服务器网关接口 → ASGI (Asynchronous Server Gateway Interface)
+1. Name → 名称 
 
-3. 通用唯一识别码 → UUID (Universally Unique Identifier)
+2. Date → 日期
 
-4. 文档对象模型 → DOM (Document Object Model)
+3. Port → 端口
 
-5. 模型 → Model
+4. Host → 主机
 
-6. 路由 → Route
+5. Insert → 插入 
 
-7. 模式 → Schema
+6. Query → 查询
 
-8. 数据库 → Database
+7. Update → 更新
 
-9. 客户端 → Client
+8. Delete → 删除
 
-10. 集合 → Collection
+9. Model → 模型
 
-11. 文档 → Document
+10. Commit → 提交
 
-12. 插入 → Insert
+11. Document → 文档
 
-13. 查询 → Query
+12. Collection → 集合
 
-14. 更新 → Update
+13. Description → 描述
 
-15. 删除 → Delete
+14. Database → 数据库
 
-16. 序列化 →  Serialization
+15. Completed → 完成状态 
 
-17. 异步函数 → Async Function
+16. Todo → 待办事项
 
-18. 装饰器 → Decorator
+17. Package Manager → 包管理器
 
-19. 依赖注入 → Dependency Injection
+18. Version Control → 版本控制
 
-20. 状态码 → Status Code
+19. Logging → 日志记录
 
-21. 请求 → Request
+20. Unit Test → 单元测试 (最小可测试部件)
 
-22. 响应 → Response
+21. Route → 路由(网络路由)
 
-23. 配置 → Configuration
+22. ObjectId → 唯一标识符
 
-24. 虚拟环境 → Virtual Environment
+23. Serializer → 序列化器(将数据结构转换为可存储/传输的格式)
 
-25. 包管理器 → Package Manager
+24. FastPAI → 快速应用编程接口
 
-26. 版本控制 → Version Control 
+25. Repository → 仓库(储存和管理文件) 
 
-27. 仓库 → Repository
+26. Branch → 分支(独立的线程)
 
-28. 提交 → Commit
+27. Merge → 合并(合并多个分支的更改)
 
-29. 分支 → Branch
+28. Client → 客户端(主动请求服务的一方)
 
-30. 合并 → Merge
+29. Schema → 模式(一般指数据的结构)
 
-31. 拉取请求 → Pull Request
+30. Request → 请求 (向服务发起请求)
 
-32. 待办事项 → Todo
+31. Response → 响应(服务器对请求的回复)
 
-33. 名称 → Name
+32. Cluster → 集群(多个计算机组成的服务器)
 
-34. 描述 → Description
+33. Configuration → 配置(软件与硬件的调整)
 
-35. 完成状态 → Completed
+34. Serialization → 序列化(将对象转换为字节流)
 
-36. 日期 → Date
+35. Async Function → 异步函数(用于处理处理非阻塞操作)
 
-37. 端口 → Port
+36. Decorator → 装饰器(用于动态修改或扩展函数)
 
-38. 主机 → Host
+37. Dependency Injection → 依赖注入(实现控制反转)
 
-39. 集群 → Cluster
+38. Status Code → 状态码(即数字代码)
 
-40. 模式验证 → Schema Validation
+39. Data Serialization → 数据序列化
 
-41. 类型提示 → Type Hinting
+40. Resource Identifier → 资源标识符
+
+41. Resource Representation → 资源表示
+
+42. Automated Testing → 自动化测试
+
+43. Integration Test →  集成测试(不同模块/组件的测试)
+
+44. Schema Validation → 模式验证 
+
+45. Type Hinting → 类型提示
  
-42. 静态类型检查 → Static Type Checking
+46. Static Type Checking → 静态类型检查
 
-43. 中间件 → Middleware
+47. Middleware → 中间件(位于系统层级之间的软件层)
 
-44. 日志记录 → Logging
+48. Virtual Environment → 虚拟环境
 
-45. 单元测试 → Unit Test 
+49. Pull Request → 拉取请求(请对方拉取自己代码的请求)
 
-46. 集成测试 → Integration Test 
+50. ASGI (Asynchronous Server Gateway Interface) → 异步服务器网关接口
 
-47. 自动化测试 → Automated Testing
+51. UUID (Universally Unique Identifier) → 通用唯一识别码
 
-48. 持续集成 → CI (Continuous Integration)
+52. DOM (Document Object Model) → 文档对象模型
 
-49. 持续部署 → CD (Continuous Deployment)
+53. CI (Continuous Integration) → 持续集成
 
-50. 唯一标识符 → ObjectId
+54. CD (Continuous Deployment) → 持续部署
 
-51. 数据序列化 → Data Serialization 
 
-52. 资源标识符 → Resource Identifier 
 
-53. 资源表示 → Resource Representation
 
-54. 序列化器  → Serializer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

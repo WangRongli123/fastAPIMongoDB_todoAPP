@@ -1,7 +1,11 @@
 ## dengkeyi
+
 AI 使用情况
+
 初步询问：向 AI 询问基于 FastAPI - MongoDB 待办事项应用代码撰写项目介绍（背景、目标、功能概述）的方向。AI 提供思路，如从当代任务管理需求引出背景，围绕异步 API、CRUD 操作等阐述目标，为写作指引方向。
+
 翻译检查：将项目介绍中文内容让 AI 翻译成英文，核查准确性与专业性。AI 翻译的专业术语（如 FastAPI、MongoDB 等）准确，语句通顺，符合项目介绍语境。
+
 专业术语审核：初稿完成后，让 AI 审核术语。AI 确认 “Atomic Transaction Guarantees” 等术语正确，指出 MongoDB 单文档原子性但跨文档事务需多文档事务（session）等细节；在英文表达上，建议 “exemplifies” 换为 “demonstrates” 等。用户依据建议修改完善。
 
 ## chenghongyu

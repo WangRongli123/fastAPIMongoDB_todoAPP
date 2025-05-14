@@ -1,0 +1,156 @@
+Project Usage Tutorial
+ 
+1. Prerequisites
+Before starting to use this FastAPI MongoDB to-do list application, make sure you have installed the following:
+ 
+- Have a basic understanding of FastAPI.
+- Python is installed in the system.
+- MongoDB Community Server is installed and started.
+ 
+2. Install Dependencies
+First, you need to install the necessary dependencies. Open the terminal and run the following command:
+ 
+pip install fastapi uvicorn pymongo pymongo[srv]
+ 
+ 
+3. Configure the Database
+Create a file named  database.py  and add the following code:
+ 
+from pymongo import MongoClient
+client = MongoClient("mongodb://localhost:27017/mydb")
+db = client.todo_app
+collection_name = db["todos_app"]
+ 
+ 
+4. Create  todos_*  Files
+Create  todos_*  files in the  models ,  routes , and  schemas  folders respectively.
+ 
+4.1 Create the  models/todos_model.py  file and add the following code:
+ 
+from pydantic import BaseModel
+
+class Todo(BaseModel):
+    name: str
+    description: str
+    completed: bool
+    date: str
+ 
+ 
+4.2 Create the  routes/todos_route.py  file and add the following code:
+ 
+from fastapi import APIRouter
+
+from models.todos_model import Todo
+from config.database import collection_name
+
+from schemas.todos_schema import todos_serializer, todo_serializer
+from bson import ObjectId
+
+todo_api_router = APIRouter()
+
+# Retrieve all to-do items
+@todo_api_router.get("/")
+async def get_todos():
+    todos = todos_serializer(collection_name.find())
+    return todos
+
+# Retrieve a single to-do item
+@todo_api_router.get("/{id}")
+async def get_todo(id: str):
+    return todos_serializer(collection_name.find_one({"_id": ObjectId(id)}))
+
+# Create a to-do item
+@todo_api_router.post("/")
+async def create_todo(todo: Todo):
+    _id = collection_name.insert_one(dict(todo))
+    return todos_serializer(collection_name.find({"_id": _id.inserted_id}))
+
+# Update a to-do item
+@todo_api_router.put("/{id}")
+async def update_todo(id: str, todo: Todo):
+    collection_name.find_one_and_update({"_id": ObjectId(id)}, {
+        "$set": dict(todo)
+    })
+    return todos_serializer(collection_name.find({"_id": ObjectId(id)}))
+
+# Delete a to-do item
+@todo_api_router.delete("/{id}")
+async def delete_todo(id: str):
+    collection_name.find_one_and_delete({"_id": ObjectId(id)})
+    return {"status": "ok"}
+ 
+ 
+4.3 Create the  todos_schema.py  file and add the following code:
+ 
+def todo_serializer(todo) -> dict:
+    return {
+        "id": str(todo["_id"]),
+        "name": todo["name"],
+        "description": todo["description"],
+        "completed": todo["completed"],
+        "date": todo["date"],
+    }
+
+def todos_serializer(todos) -> list:
+    return [todo_serializer(todo) for todo in todos]
+ 
+ 
+5. Edit the  main.py  file and add the following code:
+ 
+from fastapi import FastAPI
+from routes.todos_route import todo_api_router
+
+app = FastAPI()
+
+app.include_router(todo_api_router)
+ 
+ 
+6. Run the Application
+To start the FastAPI application, run the following command in the terminal:
+ 
+uvicorn main:app --reload
+ 
+ 
+7. Test the CRUD API using the Postman tool:
+7.1 Retrieve all to-do items
+Open Postman and access the following URL:
+ 
+http://127.0.0.1:8000/
+ 
+ 
+7.2 Retrieve a single to-do item
+To retrieve a single to-do item, append the ID of the to-do item to the URL:
+ 
+http://127.0.0.1:8000/<todo_id>
+ 
+ 
+Replace  <todo_id>  with the actual ID of the to-do item.
+ 
+7.3 Create a new to-do item
+Create a new to-do item by sending a POST request to the following URL and including the details of the to-do item in the JSON body:
+ 
+http://127.0.0.1:8000/
+ 
+ 
+The JSON body should have the following structure:
+ 
+{
+    "name": "New To-Do Item",
+    "description": "This is a new to-do item",
+    "completed": false,
+    "date": "2024-01-01"
+}
+ 
+ 
+7.4 Update an existing to-do item
+To update an existing to-do item, send a PUT request to the following URL, including the ID of the to-do item you want to update and the updated details in the JSON body:
+ 
+http://127.0.0.1:8000/<todo_id>
+ 
+ 
+The JSON body should have the same structure as the create request but with the updated values.
+ 
+7.5 Delete a to-do item
+To delete a to-do item, send a DELETE request to the following URL, including the ID of the to-do item you want to delete:
+ 
+http://127.0.0.1:8000/<todo_id>
